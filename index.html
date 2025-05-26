@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyBkZmPVXWEJa9dfAGSegoHpywCk36MJG3c",
+        authDomain: "jogo-da-velha-548f2.firebaseapp.com",
+        projectId: "jogo-da-velha-548f2",
+        storageBucket: "jogo-da-velha-548f2.appspot.com",
+        messagingSenderId: "540563866232",
+        appId: "1:540563866232:web:16ae3717ba63276189e38d",
+        measurementId: "G-61QQCYCF4L"
+      };
+    
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+</head>
+<body>
+    <main>
+        <h1>Jogo da Velha</h1>
+        <hr />
+        <div class="game">
+            <button data-i="1" aria-label="Posição 1"></button>
+            <button data-i="2" aria-label="Posição 2"></button>
+            <button data-i="3" aria-label="Posição 3"></button>
+            <button data-i="4" aria-label="Posição 4"></button>
+            <button data-i="5" aria-label="Posição 5"></button>
+            <button data-i="6" aria-label="Posição 6"></button>
+            <button data-i="7" aria-label="Posição 7"></button>
+            <button data-i="8" aria-label="Posição 8"></button>
+            <button data-i="9" aria-label="Posição 9"></button>
+        </div>
+
+        <h2 class="currentPlayer"></h2>
+
+        <div>
+            <label for="roomInput">Código da sala:</label>
+            <input type="text" id="roomInput" placeholder="Digite o código">
+            <button id="joinRoom">Entrar</button>
+        </div>
+        
+        <h3>Placar</h3>
+        <div>
+            <span>X: <span id="scoreX">0</span></span>
+            <span> | O: <span id="scoreO">0</span></span>
+        </div>
+        
+        <h3>Chat</h3>
+        <div id="chatBox" style="border:1px solid #000; height:100px; overflow-y:scroll; margin-bottom:5px;"></div>
+        <input type="text" id="chatInput" placeholder="Digite uma mensagem">
+        <button id="sendMsg">Enviar</button>
+        
+        <div>
+            <button onclick="window.location.reload();">Começar Novamente</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
